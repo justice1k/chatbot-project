@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSA Chatbot Testing</title>
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .logo-placeholder {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        df-messenger {
+            z-index: 999;
+            position: fixed;
+            --df-messenger-font-color: #000;
+            --df-messenger-font-family: Google Sans;
+            --df-messenger-chat-background: #f3f6fc;
+            --df-messenger-message-user-background: #d3e3fd;
+            --df-messenger-message-bot-background: #fff;
+            bottom: 16px;
+            right: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-placeholder">
+            <img src="logo.jpg" alt="UPSA Logo ">
+        </div>
+        <h1>UPSA AI Chatbot Testing Page</h1>
+        <p>This webpage is dedicated to testing the AI customer service chatbot for the University of Professional Studies, Accra (UPSA).</p>
+        <p>Chatbot testing in progress...</p>
+    </div>
+
+    <df-messenger
+        project-id="upsa-ai-assistant"
+        agent-id="95966f03-27f1-4c4b-b06d-615ed458b4bb"
+        language-code="en"
+        max-query-length="-1">
+        <df-messenger-chat-bubble
+            chat-title="UPSA AI ASSISTANT">
+        </df-messenger-chat-bubble>
+    </df-messenger>
+</body>
+</html>
