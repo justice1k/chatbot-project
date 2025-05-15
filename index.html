@@ -3,64 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UPSA Chatbot Testing</title>
+    <title>UPSA AI Chatbot Testing | University of Professional Studies, Accra</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
     <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Custom styles to complement Tailwind and style Dialogflow Messenger */
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
-            text-align: center;
-            background-color: #f4f4f4;
+            font-family: 'Inter', sans-serif;
+            /* Base text color for the page */
+            color: #1f2937; /* Tailwind gray-800 */
         }
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-        .logo-placeholder {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .logo-placeholder img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
+
+        /* Dialogflow Messenger Customization */
         df-messenger {
             z-index: 999;
             position: fixed;
-            --df-messenger-font-color: #000;
-            --df-messenger-font-family: Google Sans;
-            --df-messenger-chat-background: #f3f6fc;
-            --df-messenger-message-user-background: #d3e3fd;
-            --df-messenger-message-bot-background: #fff;
-            bottom: 16px;
-            right: 16px;
+            bottom: 1rem; /* 16px */
+            right: 1rem; /* 16px */
+            /* UPSA Brand Colors */
+            --df-messenger-brand-color: #003366; /* UPSA Dark Blue */
+            --df-messenger-font-color: #333333;
+            --df-messenger-font-family: 'Inter', sans-serif;
+            --df-messenger-chat-background: #ffffff;
+            --df-messenger-message-user-background: #d1e5f0; /* Light blue for user messages */
+            --df-messenger-message-bot-background: #f3f4f6; /* Tailwind gray-100 for bot messages */
+            --df-messenger-button-titlebar-color: #003366; /* UPSA Dark Blue for chat header */
+            --df-messenger-button-titlebar-font-color: #ffffff;
+            --df-messenger-input-box-border-color: #003366; /* UPSA Dark Blue for input border */
+            --df-messenger-minimized-chat-close-icon-color: #ffffff;
+        }
+
+        /* Styling for the chat bubble itself */
+        df-messenger-chat-bubble {
+            background-color: #003366; /* UPSA Dark Blue */
+            /* Adding a subtle shadow and making it perfectly round */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            width: 60px; /* Adjust size as needed */
+            height: 60px; /* Adjust size as needed */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        df-messenger-chat-bubble:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
     </style>
+    <script>
+      // Tailwind CSS configuration 
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              upsaBlue: {
+                light: '#3E6B99', // Lighter shade for accents
+                DEFAULT: '#003366', // Primary UPSA Blue (example) - This is still defined but not used for header bg
+                dark: '#002244',  // Darker shade
+              },
+              upsaGold: {
+                DEFAULT: '#FFC72C', // UPSA Gold (example)
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
 </head>
-<body>
-    <div class="container">
-        <div class="logo-placeholder">
-            <img src="logo.jpg" alt="UPSA Logo ">
+<body class="bg-gray-100 antialiased leading-relaxed">
+
+    <header class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center">
+            <div class="flex items-center mb-4 sm:mb-0">
+                <div class="bg-white p-2 mr-4 shadow-md rounded-md"> 
+                    <img src="/logo.jpg" alt="Company Logo" class="h-16 w-24 sm:h-16 sm:w-32 object-contain">
+                </div>
+                <div>
+                    <h1 class="text-2xl sm:text-3xl font-bold">UPSA AI Assistant</h1>
+                    <p class="text-sm sm:text-md text-gray-200">Chatbot Testing & Interaction Platform</p>
+                </div>
+            </div>
+            <span class="text-sm text-gray-300">University of Professional Studies, Accra</span>
         </div>
-        <h1>UPSA AI Chatbot Testing Page</h1>
-        <p>This webpage is dedicated to testing the AI customer service chatbot for the University of Professional Studies, Accra (UPSA).</p>
-        <p>Chatbot testing in progress...</p>
-    </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-3xl mx-auto">
+            <h2 class="text-3xl font-semibold text-upsaBlue-dark mb-6 text-center">
+                Welcome to the Chatbot Testing Page!
+            </h2>
+            <p class="text-gray-700 mb-4 text-lg">
+                This platform is dedicated to testing and refining the AI customer service chatbot for the
+                <span class="font-semibold text-upsaBlue-DEFAULT">University of Professional Studies, Accra (UPSA)</span>.
+            </p>
+            <p class="text-gray-700 mb-6 text-lg">
+                Your interaction and feedback are crucial for enhancing its performance and ensuring it provides accurate and helpful information.
+            </p>
+
+            <div class="bg-upsaBlue-light/10 p-6 rounded-lg border border-upsaBlue-light mb-8">
+                <h3 class="text-xl font-semibold text-upsaBlue-dark mb-3">How to Test the Chatbot:</h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Click on the <span class="font-semibold text-upsaBlue-DEFAULT">chat icon</span> at the bottom-right corner of your screen to open the chat window.</li>
+                    <li>Ask questions related to UPSA, such as admissions, courses, campus life, events, or general inquiries.</li>
+                    <li>Try different ways of phrasing your questions to test the chatbot's understanding.</li>
+                    <li>Observe the responses for accuracy, clarity, relevance, and tone.</li>
+                    <li>If you encounter any issues or have suggestions, please note them down. (Ideally, there would be a feedback mechanism here).</li>
+                </ul>
+            </div>
+
+            <p class="text-gray-600 text-md text-center">
+                The <span class="font-semibold text-upsaBlue-DEFAULT">UPSA AI Assistant</span> is ready when you are.
+                <br>Click the chat icon to begin!
+            </p>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 text-center p-6 mt-12">
+        <p>&copy; <span id="currentYear"></span> University of Professional Studies, Accra. All Rights Reserved.</p>
+        <p class="text-sm text-gray-500 mt-1">Empowering Future Professionals</p>
+    </footer>
 
     <df-messenger
         project-id="upsa-ai-assistant"
@@ -68,8 +133,14 @@
         language-code="en"
         max-query-length="-1">
         <df-messenger-chat-bubble
-            chat-title="UPSA AI ASSISTANT">
+            chat-title="UPSA AI Assistant">
         </df-messenger-chat-bubble>
     </df-messenger>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
 </body>
 </html>
